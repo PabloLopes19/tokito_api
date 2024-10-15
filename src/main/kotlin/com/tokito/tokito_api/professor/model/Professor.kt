@@ -1,12 +1,27 @@
 package com.tokito.tokito_api.professor.model
 
-data class Professor(
-    val slug: String?,
-    val name: String,
-    val email: String,
-    val lectures: List<String>,
-    val degreeTitle: String?,
-    val curriculum: String,
-) {
+import jakarta.persistence.*
 
+@Entity
+@Table(name = "professor")
+data class Professor(
+    @Id
+    val slug: String?,  // Primary key
+
+    @Column(nullable = false)
+    val name: String,
+
+    @Column(nullable = false)
+    val email: String,
+
+    @ElementCollection
+    val lectures: List<String> = mutableListOf(),
+
+    @Column(nullable = false)
+    val degreeTitle: String?,
+
+    @Column(nullable = false, columnDefinition = "TEXT")
+    val curriculum: String
+) {
+//    constructor() : this(null, "", "", emptyList(), null, "")
 }

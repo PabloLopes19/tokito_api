@@ -2,11 +2,13 @@ package com.tokito.tokito_api.professor.service
 
 import com.tokito.tokito_api.hello.model.Message
 import com.tokito.tokito_api.professor.model.Professor
+import com.tokito.tokito_api.professor.repository.ProfessorRepository
 import org.springframework.stereotype.Service
 
 @Service
-class ProfessorService {
-    fun createProfessor(data: Professor): Professor {
+class ProfessorService(private val professorRepository: ProfessorRepository) {
+    fun save(data: Professor): Professor {
+        professorRepository.save(data)
         return data
     }
 

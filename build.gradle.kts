@@ -26,6 +26,18 @@ dependencies {
 	runtimeOnly("com.h2database:h2") // Banco de dados em memória H2
 	implementation("org.springframework.boot:spring-boot-starter-validation") // Para validação de dados
 	testImplementation("org.springframework.boot:spring-boot-starter-test") // Dependências para testes
+
+	// postgree
+	implementation("org.postgresql:postgresql")
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.jetbrains.kotlin:kotlin-noarg")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.postgresql:postgresql:42.6.0")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
 
 kotlin {

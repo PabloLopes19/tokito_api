@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 class ProfessorController(private val professorService: ProfessorService) {
     @PostMapping("/professor")
     fun createProfessor(@RequestBody body: Professor): Professor {
-        return professorService.createProfessor(body)
+        return professorService.save(body)
     }
 
     @PutMapping("/professor/{slug}")
