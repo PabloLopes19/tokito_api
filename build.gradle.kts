@@ -19,11 +19,13 @@ repositories {
 }
 
 dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.springframework.boot:spring-boot-starter")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	runtimeOnly("com.h2database:h2") // Banco de dados em memória H2
+	implementation("org.springframework.boot:spring-boot-starter-validation") // Para validação de dados
+	testImplementation("org.springframework.boot:spring-boot-starter-test") // Dependências para testes
 }
 
 kotlin {

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service
 @Service
 class HelloService {
     fun getHelloMessage(): Message {
-        return Message("Hello World")
+        return Message("Hello there")
     }
 }
