@@ -1,5 +1,5 @@
 
-# Tokito Api
+# Tokino Api
 
 Uma API de cadastro de alunos e professores para gerenciamento de turmas e horários pode ser organizada em três principais áreas: cadastro de usuários, gerenciamento de turmas e agendamento de horários.
 
