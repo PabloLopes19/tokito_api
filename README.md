@@ -3,6 +3,10 @@
 
 Uma API de cadastro de alunos e professores para gerenciamento de turmas e horários pode ser organizada em três principais áreas: cadastro de usuários, gerenciamento de turmas e agendamento de horários.
 
+## Integrantes
+
+Anna Beatriz Loz Silva e Souza, Cristian Domingues, Lucas Matheus Gadonski, Matheus Lofy e Pablo Lopes
+
 ## Cadastro de Alunos e Professores:
  
 #### POST `/users`
