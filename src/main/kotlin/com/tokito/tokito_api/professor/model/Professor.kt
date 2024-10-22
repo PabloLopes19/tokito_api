@@ -6,22 +6,24 @@ import jakarta.persistence.*
 @Table(name = "professor")
 data class Professor(
     @Id
-    val slug: String?,  // Primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null,
+
+    @Column(nullable = false, unique = true)
+    val slug: String,
 
     @Column(nullable = false)
     val name: String,
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     val email: String,
 
-    @ElementCollection
-    val lectures: List<String> = mutableListOf(),
+    @Column(name = "lecture", nullable = true)
+    val lectures: List<String>?,
+
+    @Column(nullable = true)
+    val degreeTitle: String? = null,
 
     @Column(nullable = false)
-    val degreeTitle: String?,
-
-    @Column(nullable = false, columnDefinition = "TEXT")
     val curriculum: String
-) {
-//    constructor() : this(null, "", "", emptyList(), null, "")
-}
+)

@@ -7,24 +7,16 @@ import org.springframework.stereotype.Service
 
 @Service
 class ProfessorService(private val professorRepository: ProfessorRepository) {
-    fun save(data: Professor): Professor {
-        professorRepository.save(data)
-        return data
+    fun saveProfessor(data: Professor): Professor {
+        return professorRepository.save(data)
     }
 
     fun updateProfessor(data: Professor, slug: String): Professor {
         return data.copy(slug = slug)
     }
 
-    fun getProfessorData(slug: String): Professor {
-        return Professor(
-            slug = slug,
-            name = "Paulo Manseira",
-            email = "manseira.paulo@gmail.com",
-            lectures = listOf("POO", "Back-end"),
-            degreeTitle = null,
-            curriculum = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        )
+    fun getProfessorData(slug: String): Professor? {
+        return professorRepository.getBySlug(slug)
     }
 
     fun deleteProfessor(slug: String): Message {

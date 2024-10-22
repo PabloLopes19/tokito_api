@@ -5,4 +5,6 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface ProfessorRepository : CrudRepository<Professor, String>
+interface ProfessorRepository : CrudRepository<Professor, String> {
+    fun getBySlug(slug: String): Professor?
+}
