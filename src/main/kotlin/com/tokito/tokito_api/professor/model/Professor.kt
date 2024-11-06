@@ -1,5 +1,6 @@
 package com.tokito.tokito_api.professor.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
 
 @Entity
@@ -7,23 +8,14 @@ import jakarta.persistence.*
 data class Professor(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-
-    @Column(nullable = false, unique = true)
-    val slug: String,
-
-    @Column(nullable = false)
-    val name: String,
-
-    @Column(nullable = false, unique = true)
-    val email: String,
-
-    @Column(name = "lecture", nullable = true)
-    val lectures: List<String>?,
-
-    @Column(nullable = true)
-    val degreeTitle: String? = null,
-
-    @Column(nullable = false)
-    val curriculum: String
+    @JsonIgnore
+    var id: Long? = null,
+    var slug: String = "",
+    var name: String = "",
+    var email: String = "",
+    @JsonIgnore
+    var password: String = "",
+    var lectures: List<String> = emptyList(),
+    var degreeTitle: String? = null,
+    var curriculum: String = ""
 )
