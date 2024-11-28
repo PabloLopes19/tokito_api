@@ -2,22 +2,17 @@ package com.tokito.tokito_api.student.service
 
 import com.tokito.tokito_api.hello.model.Message
 import com.tokito.tokito_api.student.model.StudentModel
+import com.tokito.tokito_api.student.repository.StudentRepository
 import org.springframework.stereotype.Service
 
 @Service
-class StudentService {
+class StudentService(private val studentRepository: StudentRepository) {
     fun createStudent(user: StudentModel): StudentModel {
-        return user
+        return studentRepository.save(user)
     }
 
-    fun getStudentData(slug: String): StudentModel {
-        return StudentModel(
-            slug = slug,
-            name = "Matheus Lofy",
-            email = "matheus.lofy.catolicasc.org.br",
-            numberId = 242424,
-            course = "Engenharia de Software"
-        )
+    fun getStudentData(slug: String): StudentModel? {
+        return studentRepository.getBySlug(slug)
     }
 
     fun updateStudent(slug: String, user: StudentModel): StudentModel {

@@ -1,9 +1,28 @@
 package com.tokito.tokito_api.student.model
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonProperty
+import jakarta.persistence.*
+
+@Entity
+@Table(name = "students")
 data class StudentModel(
-    val slug: String?,
-    val name: String,
-    val email: String,
-    val numberId: Long,
-    val course: String,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
+    var id: Long? = null,
+
+    var slug: String = "",
+
+    var name: String = "",
+
+    var email: String = "",
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    var password: String = "",
+
+    var numberId: Long = 0,
+
+    var course: String? = null,
+
 )
