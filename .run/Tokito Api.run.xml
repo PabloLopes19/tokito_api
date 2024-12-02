@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tokito Api" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.tokito.tokito_api.TokitoApiApplicationKt" />
+    <module name="tokito_api.main" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
