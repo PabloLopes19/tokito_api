@@ -70,7 +70,20 @@ class LectureController(private val lectureService: LectureService) {
 //    }
 
     @DeleteMapping("/lecture/{id}")
-    fun deleteLectureById(@PathVariable id: String): String{
-        return "Aula deletada!"
+    fun deleteLectureById(@PathVariable id: String): ResponseEntity<Any>{
+        try {
+            lectureService.deleteLectureById(id)
+
+            return ResponseEntity("Aula $id deletada com sucesso!", HttpStatus.CREATED)
+        } catch (e: Exception) {
+            print("DEU RUM!")
+            return ResponseEntity(
+                ErrorMessage(
+                    errorCode = 500,
+                    errorMessage = "Server error | Não foi possível resgatar a aula"
+                ),
+                HttpStatus.INTERNAL_SERVER_ERROR,
+            )
+        }
     }
 }

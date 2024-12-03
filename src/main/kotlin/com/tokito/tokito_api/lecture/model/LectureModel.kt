@@ -10,7 +10,6 @@ import jakarta.persistence.*
 data class LectureModel (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     var id: Long? = null,
 
     var lectureName: String = "",

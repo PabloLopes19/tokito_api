@@ -17,4 +17,8 @@ class LectureService(private val repository: LectureRepository) {
     fun getAll(): MutableIterable<LectureModel> {
         return repository.findAll()
     }
+
+    fun deleteLectureById(id: String) {
+        return repository.deleteById(id)
+    }
 }
