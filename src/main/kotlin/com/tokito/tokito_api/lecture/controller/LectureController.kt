@@ -33,7 +33,7 @@ class LectureController(private val lectureService: LectureService) {
         try {
             val lecture: LectureModel? = lectureService.getLectureData(id)
 
-            return ResponseEntity(lecture ?: "Não há aulas com o id: $id", HttpStatus.CREATED)
+            return ResponseEntity(lecture ?: "Não há aulas com o id: $id", HttpStatus.OK)
         } catch (e: Exception) {
             print("DEU RUM!")
             return ResponseEntity(
@@ -51,7 +51,7 @@ class LectureController(private val lectureService: LectureService) {
         try {
             val lectures: MutableIterable<LectureModel>? = lectureService.getAll()
 
-            return ResponseEntity(lectures ?: "Não há aulas cadastradas no sistema", HttpStatus.CREATED)
+            return ResponseEntity(lectures ?: "Não há aulas cadastradas no sistema", HttpStatus.OK)
         } catch (e: Exception) {
             print("DEU RUM!")
             return ResponseEntity(
@@ -64,17 +64,12 @@ class LectureController(private val lectureService: LectureService) {
         }
     }
 
-//    @PutMapping("/lecture/{id}")
-//    fun updateLectureById(@PathVariable id: String, @RequestBody body: StudentModel): ResponseEntity<Any> {
-//
-//    }
-
     @DeleteMapping("/lecture/{id}")
     fun deleteLectureById(@PathVariable id: String): ResponseEntity<Any>{
         try {
             lectureService.deleteLectureById(id)
 
-            return ResponseEntity("Aula $id deletada com sucesso!", HttpStatus.CREATED)
+            return ResponseEntity("Aula $id deletada com sucesso!", HttpStatus.OK)
         } catch (e: Exception) {
             print("DEU RUM!")
             return ResponseEntity(
